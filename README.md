@@ -1,23 +1,12 @@
-## Basic example
+## Demonstration of bug in mapbox-gl 3.1.2
 
-Initialize a map with coordinates set by React, update the state of coordinates on map movement, and display that data in an element provided by the render function.
+### How to reproduce:
 
-![Demo gif](https://i.imgur.com/IGJuTuM.gif)
-
-### Run it
-
-    git clone https://github.com/mapbox/mapbox-react-examples.git
-
-    cd mapbox-react-examples/basic
-    npm install
-    npm start
-
-    open http://localhost:3000/
-
-### Access token
-
-    mapboxgl.accessToken = // YOUR_API_KEY_HERE
-
-Replace the [API key](https://docs.mapbox.com/help/getting-started/access-tokens/) in `src/Map.js`.
-
-Runs the app from http://localhost:3000
+- Clone repository
+- Create .env file with variables according to .env.sample
+- `npm install`
+- `npm start`
+- Hover over a rendered tree circle -> opacity should change and 3D model should scale bigger
+- Change number of rendered trees (`numTrees` variable) in [./src/Map.js](./src/Map.js) and reload
+- For small numbers < 50 (exact number unclear), everything works fine
+- For larger numbers (in my case, > 100 works reproducible), the hover effect still works on the circle, but it stops working on most of the 3D models. Weirdly enough, some randomly selected 3D models still work.

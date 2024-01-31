@@ -19,7 +19,7 @@ const Map = () => {
   const hoveredPolygonIdRef = useRef(undefined);
 
   const spread = 0.001;
-  const numTrees = 50;
+  const numTrees = 20;
 
   const [geojsonData, setGeojsonData] = useState({
     type: "FeatureCollection",
